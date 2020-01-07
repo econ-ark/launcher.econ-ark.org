@@ -1,0 +1,33 @@
+title: Econ-ARK Notebook Launcher
+url: https://launcher.econ-ark.org/
+author: Econ-ARK
+keywords:
+description: 'Econ-ARK Notebook Launcher'
+
+custom_launcher: true
+
+timezone: America/Los_Angeles
+google_analytics: UA-118130489-2
+
+#baseurl: /econark-launcher/
+baseurl:
+
+sass:
+  sass_dir: /assets/sass
+  style: :compressed
+
+repository:
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor/bundle
+
+collections:
+  featured:
+
+defaults:
+  - scope:
+      type: 'featured'
+    values:
+      order: 99

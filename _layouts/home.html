@@ -1,0 +1,98 @@
+---
+layout: default
+---
+
+<div class="row justify-content-lg-center mt-5 mb-5">
+  <div class="col-lg-10">
+    <div class="row">
+      <div class="col-lg-12">
+        <p class="site-logo float-right">
+          <a href="/"
+            ><img
+              width="180"
+              style="margin:0 0 4rem 4rem;"
+              src="{{ '/assets/img/econ-ark-logo.png' | relative_url }}"
+          /></a>
+        </p>
+        {{ content }}
+      </div>
+    </div>
+
+    <br />
+
+    <div class="card">
+      <div class="card-header">
+        <strong>Build and Launch</strong>
+      </div>
+      <div class="card-body">
+        <form class="form" id="launcher">
+          <div class="form-group">
+            <label for="notebookURLInput">GitHub Notebook URL</label>
+            <input
+              type="text"
+              class="form-control"
+              id="notebookURLInput"
+              aria-describedby="urlHelp"
+              required="required"
+            />
+            <small id="urlHelp" class="form-text text-muted"
+              >eg.
+              https://github.com/econ-ark/DemARK/blob/master/notebooks/Gentle-Intro-To-HARK.ipynb</small
+            >
+          </div>
+          <div class="text-right">
+            <button
+              type="submit"
+              class="btn btn-outline-primary"
+              id="launcherSubmitBinder"
+              value="binder"
+            >
+              Binder
+            </button>
+            {% if site.custom_launcher %}
+            <button
+              type="submit"
+              class="btn btn-outline-success"
+              id="launcherSubmitEconark"
+              value="econark"
+            >
+              Econ-ARK
+            </button>
+            {% endif %}
+          </div>
+        </form>
+      </div>
+      <div class="card-footer text-muted">
+        <small> The Econ-ARK notebook launcher platform is: </small> {% if
+        site.custom_launcher %}
+        <span class="badge badge-pill badge-success">Online</span> {% else %}
+        <span class="badge badge-pill badge-secondary">Offline</span> {% endif
+        %}
+      </div>
+    </div>
+    <div class="card mt-5">
+      <div class="card-body">
+        <p>
+          <strong>Featured Econ-ARK Notebooks</strong>{% if site.custom_launcher
+          %}<br /><small class="text-muted"
+            >Note: The following notebooks will launch on the Econ-ARK platform
+            by default if it is online.</small
+          >{% endif %}
+        </p>
+
+        <ol style="font-size:0.9rem;">
+          {% assign ordered_projects = site.featured | sort: "order" %} {% for
+          feature in ordered_projects %}
+          <li>
+            <a
+              href="#"
+              onclick="launchNotebook('{{ feature.github_url }}'{% if site.custom_launcher %}, 'econark'{% endif %}); return false;"
+              >{{ feature.name }}</a
+            ><br /><small class="text-muted">{{ feature.github_url }}</small>
+          </li>
+          {% endfor %}
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
