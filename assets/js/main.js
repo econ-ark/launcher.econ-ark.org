@@ -23,8 +23,11 @@ function launchNotebook(url, platform) {
     '?filepath=' +
     ghFilePath;
 
+  var customLauncherDomain = document.getElementById('customLauncherDomain')
+    .textContent;
+
   var econarkURL =
-    'https://notebook.econ-ark.org/' +
+    customLauncherDomain +
     ghUser +
     '/' +
     ghRepo +

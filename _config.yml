@@ -6,10 +6,11 @@ description: 'Econ-ARK Notebook Launcher'
 
 custom_launcher: true
 
-timezone: America/Los_Angeles
+custom_launcher_domain: 'https://notebook.econ-ark.org/'
+
+timezone: America/New_York
 google_analytics: UA-118130489-2
 
-#baseurl: /econark-launcher/
 baseurl:
 
 sass:
