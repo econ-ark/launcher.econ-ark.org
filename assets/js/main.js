@@ -24,7 +24,7 @@ function launchNotebook(url, platform) {
     ghFilePath;
 
   var customLauncherDomain = document.getElementById('customLauncherDomain')
-    .textContent;
+    .textContent.trim();
 
   var econarkURL =
     customLauncherDomain +
