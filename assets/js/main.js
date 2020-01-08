@@ -28,6 +28,7 @@ function launchNotebook(url, platform) {
 
   var econarkURL =
     customLauncherDomain +
+    'v2/gh/' +
     ghUser +
     '/' +
     ghRepo +
